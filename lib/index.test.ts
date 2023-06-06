@@ -5,6 +5,7 @@ import {
   isNumeric,
   isValidCreditCardNumber,
   isValidLength,
+  CardCheckr,
 } from "./index.ts";
 
 Deno.test("Card number length", () => {
@@ -66,7 +67,7 @@ Deno.test("Validate Visa", () => {
   assertEquals(true, isValidCreditCardNumber("4111111111111111"));
 });
 Deno.test("Validate Discover", () => {
-  assertEquals(true, isFormulaValid("6011111111111117"));
+  assertEquals(true, isValidCreditCardNumber("6011111111111117"));
 });
 Deno.test("Validate Amex", () => {
   assertEquals(true, isValidCreditCardNumber("378282246310005"));
@@ -79,4 +80,32 @@ Deno.test("Validate invalid card", () => {
 });
 Deno.test("Validate empty card", () => {
   assertEquals(false, isValidCreditCardNumber(""));
+});
+
+Deno.test("CardCheckr - Valid Visa Card", () => {
+  assertEquals(true, CardCheckr(4111111111111111));
+});
+
+Deno.test("CardCheckr - Valid Mastercard Card", () => {
+  assertEquals(true, CardCheckr(5555555555554444));
+});
+
+Deno.test("CardCheckr - Valid Discover Card", () => {
+  assertEquals(true, CardCheckr(6011111111111117));
+});
+
+Deno.test("CardCheckr - Valid American Express Card", () => {
+  assertEquals(true, CardCheckr(378282246310005));
+});
+
+Deno.test("CardCheckr - Invalid Card Number", () => {
+  assertEquals(false, CardCheckr(1234567890123456));
+});
+
+Deno.test("CardCheckr - Invalid Card Length", () => {
+  assertEquals(false, CardCheckr(123456));
+});
+
+Deno.test("CardCheckr - Non-Numeric Card Number", () => {
+  assertEquals(false, CardCheckr("123456abcdef"));
 });
