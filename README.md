@@ -37,3 +37,14 @@ Convenience function that combines multiple checks to validate a credit card num
 Returns `true` if all checks pass, indicating a valid credit card number, and `false` otherwise.
 
 Feel free to use these functions to validate credit card numbers in your JavaScript/TypeScript projects. Contributions and feedback are welcome!
+
+### Run locally
+
+    git clone https://github.com/p-adams/CardCheckr
+
+```
+import { CardChecker } from "./mod.ts";`
+
+// validate Visa card
+const cc = CardCheckr("4111111111111111") // true
+```
