@@ -32,7 +32,8 @@ Convenience function that combines multiple checks to validate a credit card num
 
     Validates the length using isValidLength.
     Checks if the string consists of only numeric digits using isNumeric.
-    Validates the card number using isValidCreditCardNumber.
+    Performs Luhn algorithm to validate the card number using isFormulaValid.
+    Validates the card number against major US credit cards using isValidCreditCardNumber.
 
 Returns `true` if all checks pass, indicating a valid credit card number, and `false` otherwise.
 

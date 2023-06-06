@@ -77,6 +77,9 @@ export function CardCheckr(cardNumber: number): boolean {
   if (!isNumeric(cardNumberStr)) {
     return false;
   }
+  if (!isFormulaValid(cardNumberStr)) {
+    return false;
+  }
   if (!isValidCreditCardNumber(cardNumberStr)) {
     return false;
   }
