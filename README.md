@@ -30,16 +30,16 @@ Validates the `cardNumber` string by checking against specific card number patte
 
 Convenience function that combines multiple checks to validate a credit card number. Converts the cardNumber to a string and performs the following checks:
 
-    Validates the length using isValidLength.
-    Checks if the string consists of only numeric digits using isNumeric.
-    Performs Luhn algorithm to validate the card number using isFormulaValid.
-    Validates the card number against major US credit cards using isValidCreditCardNumber.
+    Validates the length using `isValidLength`.
+    Checks if the string consists of only numeric digits using `isNumeric`.
+    Performs Luhn algorithm to validate the card number using `isFormulaValid`.
+    Validates the card number against major US credit cards using `isValidCreditCardNumber`.
 
 Returns `true` if all checks pass, indicating a valid credit card number, and `false` otherwise.
 
 Feel free to use these functions to validate credit card numbers in your JavaScript/TypeScript projects. Contributions and feedback are welcome!
 
-### Run locally
+### Local Import
 
     git clone https://github.com/p-adams/CardCheckr.git
 
@@ -47,5 +47,5 @@ Feel free to use these functions to validate credit card numbers in your JavaScr
 import { CardChecker } from "./mod.ts";`
 
 // validate Visa card
-const cc = CardCheckr("4111111111111111") // true
+const cc = CardCheckr("4111111111111111"); // true
 ```
