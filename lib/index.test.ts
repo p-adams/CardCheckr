@@ -1,5 +1,11 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
-import { isDigit, isFormulaValid, isNumeric, isValidLength } from "./index.ts";
+import {
+  isDigit,
+  isFormulaValid,
+  isNumeric,
+  isValidCreditCardNumber,
+  isValidLength,
+} from "./index.ts";
 
 Deno.test("Card number length", () => {
   assertEquals(true, isValidLength("1234567891011"));
@@ -55,3 +61,22 @@ Deno.test(
     assertEquals(result, false);
   }
 );
+
+Deno.test("Validate Visa", () => {
+  assertEquals(true, isValidCreditCardNumber("4111111111111111"));
+});
+Deno.test("Validate Discover", () => {
+  assertEquals(true, isFormulaValid("6011111111111117"));
+});
+Deno.test("Validate Amex", () => {
+  assertEquals(true, isValidCreditCardNumber("378282246310005"));
+});
+Deno.test("Validate MasterCard", () => {
+  assertEquals(true, isValidCreditCardNumber("5105105105105100"));
+});
+Deno.test("Validate invalid card", () => {
+  assertEquals(false, isValidCreditCardNumber("1234567890123456"));
+});
+Deno.test("Validate empty card", () => {
+  assertEquals(false, isValidCreditCardNumber(""));
+});
