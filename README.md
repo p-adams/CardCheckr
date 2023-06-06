@@ -40,7 +40,7 @@ Feel free to use these functions to validate credit card numbers in your JavaScr
 
 ### Run locally
 
-    git clone https://github.com/p-adams/CardCheckr
+    git clone https://github.com/p-adams/CardCheckr.git
 
 ```
 import { CardChecker } from "./mod.ts";`
